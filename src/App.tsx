@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+import Layout from "./components/Layout/Layout";
+import Router from "./routes";
 
 function App() {
   return (
     <div className="App">
-      Hello Roma
+      <Layout>
+        <Router />
+      </Layout>
     </div>
   );
 }

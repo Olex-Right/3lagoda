@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  background-color: #c52b52;
+  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  padding: 10px 20px;
+}
+
+.menu p {
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu p:hover {
+  background-color: #ddd;
+}
