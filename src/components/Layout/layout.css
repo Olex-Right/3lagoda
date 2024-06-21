@@ -3,6 +3,18 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.layout{
+  display: flex;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-height: 100vh;
+  background: #5F758E;
+}
+
 .logo {
   background-color: #c52b52;
   color: white;
@@ -14,16 +26,20 @@ body {
 .menu {
   display: flex;
   flex-direction: column;
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
   padding: 10px 20px;
+  list-style: none;
 }
 
-.menu p {
+.menu a {
+  display: block;
+  color: #f4f4f4;
   margin: 0;
   padding: 10px;
+  font-size: 18px;
+  text-decoration: none;
   cursor: pointer;
 }
-
-.menu p:hover {
-  background-color: #ddd;
+.menu a:hover{
+  text-decoration: underline;
 }
