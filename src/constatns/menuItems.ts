@@ -3,13 +3,13 @@ import CategoryRequest1 from "../pages/Category/CategoryRequest1";
 import CategoryRequest2 from "../pages/Category/CategoryRequest2";
 import Employee from "../pages/Employee/Employee";
 
-interface MenuItem {
+export interface IRouteItem {
   name: string;
   link: string;
   component: () =>  JSX.Element;
 }
 
-const menuItems: MenuItem[] = [
+const menuItems: IRouteItem[] = [
   { name: "Main", link: "/", component: Employee },
   { name: "Category", link: "/category", component: Category   },
   { name: "Employee", link: "/employee", component: Employee },

@@ -4,16 +4,20 @@ body {
   background: #f4f4f4;
 }
 
-.layout{
+a{
+  text-decoration: none;
+}
+
+.layout {
   display: flex;
 }
 
-.sidebar{
+.sidebar {
   display: flex;
   flex-direction: column;
   width: 300px;
   min-height: 100vh;
-  background: #5F758E;
+  background: #5f758e;
 }
 
 .logo {
@@ -41,17 +45,17 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-.menu a:hover{
+.menu a:hover {
   text-decoration: underline;
 }
 
-.content{
+.content {
   padding: 20px;
   flex: 1 1;
 }
 
-h2{
-  color: #29323D;
+h2 {
+  color: #29323d;
 }
 
 /* CategoryRequest1.css */
@@ -98,4 +102,18 @@ h2{
 .category-name {
   font-size: 16px;
   color: #777;
+}
+
+/* Buttons */
+
+.add-button {
+  display: block;
+  padding: 10px 20px;
+  background: #c52b52;
+  font-size: 20px;
+  border: 0;
+  border-radius: 12px;
+  color: #f4f4f4;
+  cursor: pointer;
+  margin-left: auto;
 }

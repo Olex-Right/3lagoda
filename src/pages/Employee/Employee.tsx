@@ -1,7 +1,13 @@
 import React from "react";
+import AddButton from "../../components/Buttons/AddButton";
 
 const Employee = () => {
-  return <div>Employee</div>;
+  return (
+    <div>
+      <AddButton title="Employee" />
+      <p>Employee</p>
+    </div>
+  );
 };
 
 export default Employee;
