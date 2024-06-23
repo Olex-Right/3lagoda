@@ -6,7 +6,7 @@ import Employee from "../pages/Employee/Employee";
 export interface IRouteItem {
   name: string;
   link: string;
-  component: () =>  JSX.Element;
+  component: React.FC<any>;
 }
 
 const menuItems: IRouteItem[] = [
