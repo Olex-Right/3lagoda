@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ICategory } from "../../interfaces/category";
+import { ICategory } from "../../interfaces/entities";
 import { fetchCategoryRequest1 } from "../../api/categories";
 
 const CategoryRequest1 = (): JSX.Element => {

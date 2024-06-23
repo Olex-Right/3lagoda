@@ -1,4 +1,4 @@
-import { ICategory, ICategoryWithProfit } from "../interfaces/category";
+import { ICategory, ICategoryWithProfit } from "../interfaces/entities";
 
 export const fetchCategoryRequest1 = async (): Promise<ICategory[]> => {
   const fetchedCategories: ICategory[] = [
