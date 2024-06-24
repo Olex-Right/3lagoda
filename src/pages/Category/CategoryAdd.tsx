@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { ICategory } from "../../interfaces/entities";
+import styles from "./Category.module.css";
+import { addCategoryRequest } from "../../api/categories";
 
 interface CategoryAddProps {
   onSubmit: (category: ICategory) => void;
@@ -22,6 +24,7 @@ const CategoryAdd: React.FC<CategoryAddProps> = ({ onSubmit }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(category, "category");
+    addCategoryRequest(category);
     setCategory({
       category_number: "",
       category_name: "",
@@ -29,20 +32,25 @@ const CategoryAdd: React.FC<CategoryAddProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.formContainer}>
       {Object.keys(category).map((key) => (
-        <div key={key}>
-          <label htmlFor={key}>{key}</label>
+        <div key={key} className={styles.formGroup}>
+          <label htmlFor={key} className={styles.label}>
+            {key}
+          </label>
           <input
             type="text"
             id={key}
             name={key}
             value={category[key as keyof ICategory]}
             onChange={handleInputChange}
+            className={styles.input}
           />
         </div>
       ))}
-      <button type="submit">Add Category</button>
+      <button type="submit" className={styles.button}>
+        Add Category
+      </button>
     </form>
   );
 };

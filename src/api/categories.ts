@@ -1,4 +1,24 @@
+import axios, { AxiosResponse } from "axios";
 import { ICategory, ICategoryWithProfit } from "../interfaces/entities";
+import { API_URL } from "../constatns/api";
+
+interface AddCategoryResponse {
+  success: boolean;
+  data: ICategory;
+  message: string;
+}
+
+interface GetCategoryResponse {
+  success: boolean;
+  data: ICategory;
+  message: string;
+}
+
+interface GetCategoriesResponse {
+  success: boolean;
+  data: ICategory[];
+  message: string;
+}
 
 export const fetchCategoryRequest1 = async (): Promise<ICategory[]> => {
   const fetchedCategories: ICategory[] = [
@@ -22,4 +42,51 @@ export const fetchCategoryRequest2 = async (): Promise<ICategoryWithProfit[]> =>
     { category_name: "Fruits and Vegetables", category_number: "1", profit: 2112 },
   ];
   return fetchedCategories;
+};
+
+
+
+export const addCategoryRequest = async (category: ICategory): Promise<AxiosResponse<AddCategoryResponse>> => {
+  try {
+    const response = await axios.post<AddCategoryResponse>(`${API_URL}/addCategory`, category);
+    return response;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.message);
+      throw new Error('Failed to add category: ' + error.message);
+    } else {
+      console.error('Unexpected error:', error);
+      throw new Error('Unexpected error occurred');
+    }
+  }
+};
+
+// export const getCategoryRequest = async (categoryId: string): Promise<AxiosResponse<GetCategoryResponse>> => {
+//   try {
+//     const response = await axios.get<GetCategoryResponse>(`${API_URL}/findCategory/${categoryId}`);
+//     return response;
+//   } catch (error) {
+//     if (axios.isAxiosError(error)) {
+//       console.error('Axios error:', error.message);
+//       throw new Error('Failed to get category: ' + error.message);
+//     } else {
+//       console.error('Unexpected error:', error);
+//       throw new Error('Unexpected error occurred');
+//     }
+//   }
+// };
+
+export const getCategoriesRequest = async (): Promise<ICategory[]> => {
+  try {
+    const response = await axios.get<GetCategoriesResponse>(`${API_URL}/findCategories`);
+    return response.data.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.message);
+      throw new Error('Failed to get categories: ' + error.message);
+    } else {
+      console.error('Unexpected error:', error);
+      throw new Error('Unexpected error occurred');
+    }
+  }
 };
