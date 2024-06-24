@@ -76,31 +76,31 @@ export const addCategoryRequest = async (category: ICategory): Promise<AxiosResp
 //   }
 // };
 
-// export const getCategoriesRequest = async (): Promise<ICategory[]> => {
-//   try {
-//     const response = await axios.get<GetCategoriesResponse>(`${API_URL}/findCategories`);
-//     return response.data.data;
-//   } catch (error) {
-//     if (axios.isAxiosError(error)) {
-//       console.error('Axios error:', error.message);
-//       throw new Error('Failed to get categories: ' + error.message);
-//     } else {
-//       console.error('Unexpected error:', error);
-//       throw new Error('Unexpected error occurred');
-//     }
-//   }
-// };
-
-const dummyCategories: ICategory[] = [
-  { category_number: '001', category_name: 'Electronics' },
-  { category_number: '002', category_name: 'Books' },
-  { category_number: '003', category_name: 'Clothing' }
-];
-
 export const getCategoriesRequest = async (): Promise<ICategory[]> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(dummyCategories);
-    }, 1000);
-  });
+  try {
+    const response = await axios.get<GetCategoriesResponse>(`${API_URL}/findCategories`);
+    return response.data.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.message);
+      throw new Error('Failed to get categories: ' + error.message);
+    } else {
+      console.error('Unexpected error:', error);
+      throw new Error('Unexpected error occurred');
+    }
+  }
 };
+
+// const dummyCategories: ICategory[] = [
+//   { category_number: '001', category_name: 'Electronics' },
+//   { category_number: '002', category_name: 'Books' },
+//   { category_number: '003', category_name: 'Clothing' }
+// ];
+
+// export const getCategoriesRequest = async (): Promise<ICategory[]> => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(dummyCategories);
+//     }, 1000);
+//   });
+// };
